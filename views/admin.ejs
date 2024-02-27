@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            background-color: #4B515D;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/movies">Movie Info App</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/actors"><%= t('actorsSearch') %></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/history"><%= t('history') %></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="/movies"><%= t('main') %></a>
+                    </li>
+                    <% if (isAdmin) { %>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/admin"><%= t('adminPanel') %></a>
+                    </li>
+                    <% } %>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/login"><%= t('logout') %></a>
+                    </li>
+                    <li><a class="dropdown-item" href="/change-lang/en">English</a></li>
+                    <li><a class="dropdown-item" href="/change-lang/ru">Русский</a></li>
+                  </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-light mb-4">Admin Dashboard</h1>
+        <ul class="list-group">
+            <% users.forEach(user => { %>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <%= user.username %> - <%= user.email %>
+                    <form action="/user/<%= user._id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

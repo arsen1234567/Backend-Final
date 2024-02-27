@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="<%= i18n.language %>">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <style>
+        .form-signin {
+            max-width: 400px;
+            padding: 15px;
+            margin: auto;
+        }
+
+        .form-label-group {
+            margin-bottom: 15px;
+        }
+
+        .form-label-group input,
+        .form-label-group label {
+            height: 40px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="container mt-5">          
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-signin bg-light p-5">
+                    <div class="language-selection">
+                        <a href="/change-lang/en" class="btn btn-light">English</a>
+                        <a href="/change-lang/ru" class="btn btn-light">Русский</a>
+                      </div>
+                    <h2 class="mb-4"> <%= t('loginToYourAccount') %> </h2>
+                    <form id="loginForm" method="POST" action="/login">
+                        <div class="form-label-group">
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Your Email"
+                                required autofocus>
+                            <label for="email"><%= t('yourEmail') %></label>
+                        </div>
+
+                        <div class="form-label-group">
+                            <input type="password" id="password" name="password" class="form-control"
+                                placeholder="Password" required>
+                            <label for="password"><%= t('password') %></label>
+                        </div>
+
+                        <button type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
+                        <p class="mt-2 text-center"><%= t('haveNotAnAccount') %> <a href="/"><%= t('registerHere') %></a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer bg-dark text-light pt-4 mt-auto">
+        <div class="container">
+            <div class="row text-center text-md-left">
+                <div class="col-md-6 mb-3">
+                    <a class="navbar-brand text-white" href="#">Weather App</a>
+                    <p>Stay updated with the latest weather conditions anywhere, anytime.</p>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>Connect with Us</h5>
+                    <a href="https://facebook.com" target="_blank" class="text-white me-md-4 me-3"><i
+                            class="bi bi-facebook"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="text-white me-md-4 me-3"><i
+                            class="bi bi-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank" class="text-white me-md-4 me-3"><i
+                            class="bi bi-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank" class="text-white"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row text-center">
+                <div class="col-12 mb-3">
+                    © 2024 Serikkaliyev A. - SE-2204. All Rights Reserved.
+                </div>
+                <div class="col-12">
+                    <a href="#" class="text-white me-2">Privacy Policy</a>
+                    <a href="#" class="text-white">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
