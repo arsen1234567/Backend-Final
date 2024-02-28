@@ -92,7 +92,7 @@
             <h4><%= movieData.title %></h4>
             <p><%= t('releaseDate') %>: <%= movieData.release_date %></p>
             <p><%= t('rating') %>: <%= movieData.vote_average %>/10</p>
-            <img src="<%= movieData.poster_path %>" alt="<%= movieData.title %> Poster" class="movie-poster img-fluid">
+            <img src="https://image.tmdb.org/t/p/w1280/<%= movieData.poster_path %>" alt="<%= movieData.title %> Poster" class="movie-poster img-fluid">
           </div>
         </div>
       </div>
